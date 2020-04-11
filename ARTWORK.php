@@ -1,12 +1,7 @@
-<?php 
-    session_start();
-    if(!isset($_SESSION['user']))
-         header("Location: start.php");//check
-    else
-    {
-?>
+
 <html class="gr__" lang="en" lang="ar">
   <head>
+    <link rel="shortcut icon" href="images/favicon.ico" />
     <title>Artwork</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -73,7 +68,7 @@
         <div class="row">
           <div class="col-md-8 ftco-animate fadeInUp ftco-animated">
             <p>
-              <img src="image_1 .jpg" alt="Hands" class="img-fluid">
+              <img src="images/image_1 .jpg" alt="Hands" class="img-fluid">
             </p>
             <h2 class="mb-3">Hands</h2>
             <p>Artwork  Description</p>
@@ -82,7 +77,7 @@
               <ul class="comment-list">
                 <li class="comment">
                   <div class="vcard bio">
-                    <img alt="Image placeholder" src="1200px-Hoeffler_H.svg.png">
+                    <img alt="Image placeholder" src="images/1200px-Hoeffler_H.svg.png">
                   </div>
                   <div class="comment-body">
                     <h3>Haifa</h3>
@@ -113,8 +108,7 @@
             <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
               <div class="categories">
                 <h3>Categories</h3>
-                <li><a href="#">Transparent<span>(12)</span></a></li>
-                <li><a href="#">Abstract<span>(22)</span></a></li>   
+                <li>none</li> 
               </div>
             </div>
 
@@ -122,7 +116,7 @@
               <h3>Meets your taste?</h3>
               <div class="tagcloud">
                 <div>
-                  <i onclick="myFunction(this)" class="heart fa fa-heart-o"> </i>
+                  <i id = "like" onclick="myFunction(this)" class="heart fa fa-heart-o"> </i>
                 </div>
                 <a class="tag-cloud-link">Add to favourite list</a>
                 <p id ="liked">0 people liked this artwork</p>
@@ -180,10 +174,10 @@
 
   <!-- loader -->
   <div id="ftco-loader" class="fullscreen">
-    <svg class="circular" width="48px" height="48px">
+    <!-- <svg class="circular" width="48px" height="48px">
       <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"></circle>
       <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"></circle>
-    </svg>
+    </svg> -->
   </div> 
   <script src="js/particles.min.js"></script> <!-- الأشياء اللي ترقص -->
   <script src="js/particle.js"></script> <!-- الأشياء اللي ترقص -->
@@ -200,7 +194,7 @@
   <script src="js/owl.carousel.min.js"></script>
   <script>
     function myFunction(x) {
-      var x = 0; // المفروض هنا أستدعي الكاونتر من الداتابيس
+      var count = 0; // المفروض هنا أستدعي الكاونتر من الداتابيس
       if ( x.classList.contains( "fa-heart") ) {
           x.classList.remove( "fa-heart" ); // المتعبية
           x.classList.add( "fa-heart-o" ); // المفرغة
@@ -221,4 +215,4 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
   <script src="js/google-map.js"></script> --> <!--قش-->
 </body>
-</html> <? php } ?>
+</html>
