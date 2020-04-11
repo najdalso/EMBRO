@@ -53,8 +53,8 @@ function test_input($data) {
   return $data;
 }
 // define variables and set to empty values
-$nameErr = $emailErr = $passErr = $userErr =$Err= "";
-$name = $email = $user = $pass = "";
+$nameErr = $emailErr = $passErr = $userErr =$Err=$bioErr=$webErr= "";
+$name = $email = $user = $pass =$bio=$web= $acc= "";
 $iserror= false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
@@ -98,7 +98,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $iserror= true;}
      
   }
-    
+  $acc = test_input($_POST["account"]);
+
   if(!$iserror){
     
     $con = mysqli_connect("localhost",'root','','embro');
@@ -106,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(mysqli_connect_errno($con))
         die("Fail to connect to database :" . mysqli_connect_error());
     
-    $query = "INSERT INTO accounts VALUES ('$user','$pass','user','$email','$name')";
+    $query = "INSERT INTO accounts VALUES ('$user','$pass','$acc','$email','$name')";
 
    if(!( $result = mysqli_query($con,$query)))
    $Err ="could not set an account, try again ";
@@ -114,17 +115,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION['name']=$name;
       $_SESSION['email']=$email;
       $_SESSION['user']=$user;
-      $_SESSION['type']= 'user';
-      header("Location: page.php");//check thurya
+      $_SESSION['type']= $acc;
+      if($acc == 'artist'){
+        $query = "INSERT INTO artist VALUES ('$user','$bio','no','$web')";
+        mysqli_query($con,$query);
+        $_SESSION['approved']='no';
+        $_SESSION['bio']=$bio;
+        $_SESSION['web']=$web;
+        //$query = "INSERT INTO artwork (title , capthion , date , artist_username , image_path)VALUES ('$user','$bio','no','$web')";
+        header("Location: AddArtwork.php");//check thurya
+
+      }
+      else {
+      header("Location: page.php");//check thurya for user page 
+      }
     }
 
 
 
   }
 
-}
+} ?>
 
-
+<script>
+ 
+ $(document).ready(function() {
+   $('input[type="radio"]').click(function() {
+       if($(this).attr('id') == 'artist') {
+            $('#profilInfo').show();           
+       }
+       else {
+            $('#profilInfo').hide();   
+       }
+   });
+});
+          </script>
+<?php
 print(
 '</head>
  <!-- end css -->
@@ -178,7 +204,23 @@ print(
                 <input name = "name" type="text" class="form-control" placeholder="your name" value="'.$name.'" required>
                 <span class="error">'.$nameErr.'</span>
               </div>
-              
+              <div class="form-group">
+              <p>I am an :</p>
+              <input type="radio" id="artist" name="account" value="artist" required>
+              <label for="artist">artist</label><br>
+              <input type="radio" id="female" name="account" value="user" required>
+              <label for="user">user, just want to please my eyes</label><br>
+              </div>
+              <div id = "profilInfo" class="form-group" style = "display:none;">
+              <div class="form-group">
+              <input name = "web" type="text" class="form-control" placeholder="website (optional)" value="'. $web.'" >
+              <span class="error">'.$webErr.'</span>
+            </div>
+            <div class="form-group">
+              <textarea name = "bio" type="text" class="form-control" placeholder="bio (optional)" value="'. $bio.'" ></textarea>
+              <span class="error">'.$bioErr.'</span>
+            </div>
+              </div>
               <div class="form-group">
               <span class="error">'.$Err.'</span>
                <center> <input type="submit" value="SIGN UP" class="btn btn-primary py-3 px-5"></center>
@@ -186,7 +228,7 @@ print(
             </form>
            
           </div>
-
+           
           <!--pics -->
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
