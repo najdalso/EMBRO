@@ -1,8 +1,8 @@
 <?php 
     session_start();
-    if(isset($_SESSION['user']))
-         header("Location: mypage.php");//check
-    else
+    //if(!isset($_SESSION['user']))
+        // header("Location: login.php");//check
+    //else
     {
 ?>
 <!DOCTYPE html>
@@ -72,8 +72,8 @@
   <section class="ftco-section bg-light">
     <div class="container" style="justify-content: left;">
       <div class="row">
+
       <?php 
-session_start();
 define("DBHOST","localhost");
 define("DBUSER","root");
 define("DBPWD","");
@@ -109,8 +109,9 @@ while($row = $result->fetch_assoc()) {
             </div>
           </div>
         </div>';
-        print($string);
+
 }
+echo $string;
 }
 }
  else {
@@ -118,21 +119,6 @@ echo "0 results";
 }
 $conn->close();
 ?>
-      </div>
-      <div class="row mt-5">
-        <div class="col text-center">
-          <div class="block-27">
-            <ul>
-              <li><a href="#">&lt;</a></li>
-              <li class="active"><span>1</span></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&gt;</a></li>
-            </ul>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -176,7 +162,6 @@ $conn->close();
 
 
 <!-- loader -->
-<div id="ftco-loader" class="fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"></circle><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"></circle></svg></div>
 
 <script>
 
