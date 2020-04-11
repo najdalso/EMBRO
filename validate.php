@@ -23,13 +23,23 @@
         $_SESSION['email']= $row[3];
         $_SESSION['name']= $row[4];
         mysqli_close();
-        if($_SESSION['type']== 'artist')
-        header("Location: mypage.php");
+        if($_SESSION['type']== 'artist'){
+            $query = "SELECT * FROM artist WHERE username = '$username'";
+            $result = mysqli_query($con,$query);
+            $row = mysqli_fetch_row($result);
+            $_SESSION['approved']= $row[2];
+            if($_SESSION['approved'] == 'yes'){
+            $_SESSION['bio']= $row[1];
+            $_SESSION['website']= $row[3];
+            header("Location: mypage.php");}//artistpage
+            else
+            header("Location: mypage.php");}//user page
+        }
+        
         else if($_SESSION['type']== 'admin')
-        header("Location: mypage.php");
+        header("Location: mypage.php");//admin
         else
-        header("Location: mypage.php");
-
+        header("Location: mypage.php");//user
     }
 
     else {
