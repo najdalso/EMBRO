@@ -1,8 +1,8 @@
 <?php 
     session_start();
-    if(isset($_SESSION['user']))
-      //   header("Location: mypage.php");//check
-    //else
+    if(!isset($_SESSION['user']))
+       header("Location: login.php");//check
+    else
     {
 
 function test_input($data) {
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   }
 
-} ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -180,14 +180,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" class="form-control" placeholder="Artwork Title" name = "title" required>
               </div>
               <div class="form-group">
-                <textarea name="description" cols="30" rows="7" class="form-control" placeholder="Artwork description"></textarea>
+                <textarea name="description" cols="30" rows="7" class="form-control" placeholder="Artwork description (optional)"></textarea>
               </div>
               <div class="form-group">
-                <input type="text" name = "cate" class="form-control" placeholder="Artwork categories (separated by ,)">
+                <input type="text" name = "cate" class="form-control" placeholder="Artwork categories (optional)">
               </div>
               <div class="form-group">
                 <input type="checkbox" id="comment" name="comment" checked>
-                <label for="comment"> Allow comments on my artwork </label>
+                <label for="comment" style = "color:black;"> Allow comments on my artwork </label>
               </div>
               <div class="form-group">
                 <input type="submit" value="Submit Artwork" class="btn btn-primary py-3 px-5">
@@ -195,8 +195,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="col-md-6" style="position: relative; overflow: hidden;">
             <div class = "form-group">
-              <p>Upload artwork file</p>
-              <input type="file" name="fileToUpload" id="fileToUpload" required>
+              <p style = "color:black;">Upload artwork file</p>
+              <input style = "color:black;" type="file" name="fileToUpload" id="fileToUpload" required>
             </div>
             <div class="image-preview" id="imagePreview">
               <img src="" alt="Artwork Preview" class="image-preview-image">
