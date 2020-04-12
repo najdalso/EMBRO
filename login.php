@@ -22,15 +22,25 @@
 <title>EMPRO</title>
     <!-- CSS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="./sign up_files/animate.css">
-    <link rel="stylesheet" href="./sign up_files/style.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css"> 
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
   <style type="text/css">.scrollax-performance, .scrollax-performance *, .scrollax-performance *:before, .scrollax-performance *:after { pointer-events: none !important; -webkit-animation-play-state: paused !important; animation-play-state: paused !important; };</style>
 </head>
  <!-- end css -->
 
   <body data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0">
     
-    <div class="hero-wrap js-fullheight" style="height: 550px;">
+    <div class="hero-wrap" style="height: 550px;">
       <div class="overlay"></div>
       <div id="particles-js"><canvas class="particles-js-canvas-el" width="1112" height="1220" style="width: 100%; height: 100%;"></canvas></div>
       <div class="container">
@@ -87,11 +97,11 @@
             <div class="carousel-inner">
               
               <div class="carousel-item active"  style="width:300px; height: 400px; overflow: hidden;text-align: center;">
-                <img src="p3.jfif" class="d-block w-100" alt="..."  >
+                <img src="images/p3.jfif" class="d-block w-100" alt="..."  >
               </div>
               
               <div class="carousel-item"  style="width:300px; height: 400px; overflow: hidden;text-align: center;">
-                <img src="p5.jfif" class="d-block w-100" alt="..." >
+                <img src="images/p5.jfif" class="d-block w-100" alt="..." >
               </div>
               
             </div>
@@ -147,7 +157,6 @@
   
 
   <!-- loader -->
-  <div id="ftco-loader" class="fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"></circle>
   <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"></circle></svg></div>
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
