@@ -1,33 +1,36 @@
  <?php 
-   // session_start();
-    //if(!isset($_SESSION['user']))
-      //   header("Location: start.php");//check
-      //else
-      {
+    session_start();
+    if(!isset($_SESSION['user']))
+         header("Location: login.php");//check
+      else
+     {
   $connect = mysqli_connect('localhost','root','', 'embro');
  if(mysqli_connect_errno($connect))
         die("Fail to connect to database :" . mysqli_connect_error());
-        $SQL_username = 'SELECT username,Approval FROM accounts WHERE Approval = 0';
+        $SQL_username = 'SELECT artist.approved , artist.username , accounts.username, artist.bio
+FROM accounts , artist 
+WHERE artist.approved = "yet" AND accounts.type = "artist"';
+        $SQL_usercoun = 'SELECT username FROM accounts';
         $SQL_comment = 'SELECT comment FROM comments ';
         $SQL_art = 'SELECT likes,id  FROM artwork ';
-        
+       
         $result = mysqli_query($connect,$SQL_username);
+        $result_u = mysqli_query($connect,$SQL_usercoun);
         $result_c = mysqli_query($connect,$SQL_comment);
         $result_A = mysqli_query($connect,$SQL_art);
         
-$username = mysqli_fetch_all($result,MYSQLI_ASSOC);
-$comment = mysqli_fetch_all($result_c,MYSQLI_ASSOC);
+        $username = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        $usercount = mysqli_fetch_all($result_u,MYSQLI_ASSOC);
+        $comment = mysqli_fetch_all($result_c,MYSQLI_ASSOC);
 $arteork = mysqli_fetch_all($result_A,MYSQLI_ASSOC);
     
 
 mysqli_free_result($result);
+mysqli_free_result($result_u);
 mysqli_free_result($result_c);
 mysqli_free_result($result_A);
     
-mysqli_close($connect);
-//  $sql ="UPDATE accounts SET Approval='1' WHERE username = $thisuser ";
-
-//print_r($username) 
+mysqli_close($connect); 
 
 ?>
 <!DOCTYPE>
@@ -107,9 +110,7 @@ mysqli_close($connect);
         </div>
     </div>
 
-     <!-- Here is the section -->
-     
-      <section id="counter" class="counter">
+    <section id="counter" class="counter">
             <div class="main_counter_area">
                 <div class="overlay count-title">
                     <div class="container">
@@ -118,7 +119,7 @@ mysqli_close($connect);
                                 <div class="col-md-3">
                                     <div class="single_counter counter fa-2x ">
                                         <i class="fa fa-users  fa-2x "></i>
-                                        <?php $usres = count($username);?>
+                                        <?php $usres = count($usercount);?>
                                         <h1 class="timer count-title count-number" data-to="<?php  echo $usres; ?>" data-speed="2000"></h1>
                                         <p>EMBRO. Users</p>
                                     </div>
@@ -154,9 +155,8 @@ mysqli_close($connect);
                 </div>
             </div>
         </section><!-- End of counter Section -->
-
+	
 <!-- start of approve request section  -->    
-
 <div class="container my-5" overflow: auto; >
     <div class="row" >
     <?php foreach ($username as $newuser) {   ?>
@@ -172,7 +172,8 @@ mysqli_close($connect);
                             <p class="mb-1 ">You have new registration request from:  <?php 
                             echo $newuser['username'];
                               ?> </p>
-                            <a target="_blank" href="#">check ... Art work</a>
+                            <p target="_blank"><u>check <?php echo $newuser['username'];?> discripe her/his self : </u></p>
+                           <?php echo $newuser['bio'];?> 
                         </div>
                     </div>
                     <div class="action border-left pl-3 d-flex align-items-center">
