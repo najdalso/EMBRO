@@ -88,7 +88,7 @@ mysqli_close($connect);
             <div class="collapse navbar-collapse" id="ftco-nav" >
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="#" class="nav-link">Home page</a></li>
-                    <li class="nav-item cta"><a href="/start.html" class="nav-link"><span>sign out</span></a></li>
+                    <li class="nav-item cta"><a href="login.php" class="nav-link"><span>sign out</span></a></li>
                 </ul>
             </div>
         </div>
