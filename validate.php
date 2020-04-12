@@ -36,7 +36,7 @@
                 header("Location: mypage.php");//user page
         }
         else if($_SESSION['type']== 'admin')
-             header("Location: mypage.php");//admin
+             header("Location: admin.php");//admin
         else
               header("Location: mypage.php");//user
     }
