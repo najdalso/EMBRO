@@ -1,7 +1,7 @@
 <?php 
     session_start();
-   if(isset($_SESSION['user']))
-        header("Location: mypage.php");//check
+    if(isset($_SESSION['user']))
+       header("Location: homepage.php");//check
     else
     {
       function test_input($data) {
@@ -52,9 +52,21 @@
         } else {
           $pass = test_input($_POST["pass"]);
           if (!preg_match("/^(?=.*[^a-zA-Z]).{8,40}$/",$pass)) {
-            $passErr = "must be between 8 and 40 ";
-            $iserror= true;}
+            $passErr = "must contain letters and numbers, must be between 8 and 40 ";
+            $iserror= true;
+          }
            
+        }
+        $bio = test_input($_POST["bio"]);
+        if (strlen($bio)>240) {
+            $bioErr = "bio must be less than 240 letter";
+            $iserror= true;
+          }
+      
+          $web = test_input($_POST["web"]);
+      if (strlen($web)>300) {
+          $webErr = "website link must be less than 300 letter";
+          $iserror= true;
         }
         $acc = test_input($_POST["account"]);
       
@@ -68,32 +80,28 @@
           $query = "INSERT INTO accounts VALUES ('$user','$pass','$acc','$email','$name')";
       
          if(!( $result = mysqli_query($con,$query)))
-         $Err ="could not set an account, try again with different username ";
+         $Err ="could not set an account, try again ";
           else{
             $_SESSION['name']=$name;
             $_SESSION['email']=$email;
             $_SESSION['user']=$user;
             $_SESSION['type']= $acc;
-            if($acc == 'artist'){
-              $query = "INSERT INTO artist VALUES ('$user','$bio','no','$web')";
-              mysqli_query($con,$query);
-              $_SESSION['approved']='no';
-              $_SESSION['bio']=$bio;
-              $_SESSION['web']=$web;
-              //$query = "INSERT INTO artwork (title , capthion , date , artist_username , image_path)VALUES ('$user','$bio','no','$web')";
-              header("Location: AddArtwork.php");//check thurya
       
+            if($acc == 'artist'){
+              $query = "INSERT INTO artist VALUES ('$user','$bio','yet','$web')";
+              mysqli_query($con,$query);
+              $_SESSION['approved']='yet';
+              $_SESSION['bio']=$bio;
+              $_SESSION['web']=$web;   
             }
-            else {
-            header("Location: page.php");//check thurya for user page 
-            }
-          }
+            header("Location: homepage.php");   
+        }
       
       
       
         }
       
-      }      
+      } 
 ?>
 
 <html lang="en">
@@ -125,18 +133,8 @@
 
     <!-- CSS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css"> 
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./sign up_files/animate.css">
+    <link rel="stylesheet" href="./sign up_files/style.css">
   <style type="text/css">.scrollax-performance, .scrollax-performance *, .scrollax-performance *:before, .scrollax-performance *:after { pointer-events: none !important; -webkit-animation-play-state: paused !important; animation-play-state: paused !important; };</style><script type="text/javascript" charset="UTF-8" src="./sign up_files/common.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/util.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/map.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/stats.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/onion.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/ViewportInfoService.GetViewportInfo"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/f.txt"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/controls.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/AuthenticationService.Authenticate"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/marker.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/QuotaService.RecordEvent"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/f(1).txt"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/common.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/util.js.download"></script>
   
   
@@ -220,13 +218,15 @@ print(
               </div>
               <div id = "profilInfo" class="form-group" style = "display:none;">
               <div class="form-group">
+              <textarea name = "bio" type="text" class="form-control" placeholder="bio (write someting about you, to get approval)" value="'. $bio.'" required></textarea>
+              <span class="error">'.$bioErr.'</span>
+            </div>
+              <div class="form-group">
+
               <input name = "web" type="text" class="form-control" placeholder="website (optional)" value="'. $web.'" >
               <span class="error">'.$webErr.'</span>
             </div>
-            <div class="form-group">
-              <textarea name = "bio" type="text" class="form-control" placeholder="bio (optional)" value="'. $bio.'" ></textarea>
-              <span class="error">'.$bioErr.'</span>
-            </div>
+            
               </div>
               <div class="form-group">
               <span class="error">'.$Err.'</span>
@@ -242,11 +242,11 @@ print(
 
 
               <div class="carousel-item active"  style="width:300px; height: 400px; overflow: hidden;text-align: center;">
-                <img src="images/p3.jfif" class="d-block w-100" alt="..."  >
+                <img src="p3.jfif" class="d-block w-100" alt="..."  >
               </div>
               
               <div class="carousel-item"  style="width:300px; height: 400px; overflow: hidden;text-align: center;">
-                <img src="images/p5.jfif" class="d-block w-100" alt="..." >
+                <img src="p5.jfif" class="d-block w-100" alt="..." >
               </div>
 
             </div>
@@ -281,8 +281,8 @@ print(
            <div class="ftco-footer-widget mb-4">
             <h2 class="ftco-heading-2">Contact Information</h2>
             <ul class="list-unstyled">
-              <li><div class="py-2 d-block" style = "color:white;">198 West 21th Street, Suite 721 Riyadh 10016</div></li>
-              <li><div class="py-2 d-block" style = "color:white;">+ 1235 2355 98</div></li>
+              <li><div class="py-2 d-block" style="color:white;">198 West 21th Street, Suite 721 Riyadh 10016</div></li>
+              <li><div class="py-2 d-block"style="color:white;>+ 1235 2355 98</div></li>
               <li><a href="mailto:novrartist@gmail.com" class="py-2 d-block">novrartist@gmail.com</a></li>
             </ul>
           </div>
