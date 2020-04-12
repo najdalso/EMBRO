@@ -1,9 +1,99 @@
 <?php 
     session_start();
-   // if(isset($_SESSION['user']))
-       //  header("Location: mypage.php");//check
-    //else
+   if(isset($_SESSION['user']))
+        header("Location: mypage.php");//check
+    else
     {
+      function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
+      // define variables and set to empty values
+      $nameErr = $emailErr = $passErr = $userErr =$Err=$bioErr=$webErr= "";
+      $name = $email = $user = $pass =$bio=$web= $acc= "";
+      $iserror= false;
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["name"])) {
+          $nameErr = "Name is required";
+          $iserror= true;
+        } else {
+          $name = test_input($_POST["name"]);
+          if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+              $nameErr = "Only letters and white space allowed";
+              $iserror= true;
+            }
+        }
+        
+        if (empty($_POST["email"])) {
+          $emailErr = "Email is required";
+          $iserror= true;
+        } else {
+          $email = test_input($_POST["email"]);
+          if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+              $emailErr = "Invalid email format";
+              $iserror= true;
+            }
+        }
+          
+        if (empty($_POST["user"])) {
+          $userErr = "username is required, between 5 and 20";
+        } else {//check in the database
+          $user = test_input($_POST["user"]);
+          if (!preg_match("/^[a-zA-Z0-9]{5,20}+$/",$user)) {
+            $userErr = "Only letters and numbers allowed, between 5 and 20 ";
+            $iserror= true;
+          }
+        }
+      
+        if (empty($_POST["pass"])) {
+          $passErr =  "password is required";
+        } else {
+          $pass = test_input($_POST["pass"]);
+          if (!preg_match("/^(?=.*[^a-zA-Z]).{8,40}$/",$pass)) {
+            $passErr = "must be between 8 and 40 ";
+            $iserror= true;}
+           
+        }
+        $acc = test_input($_POST["account"]);
+      
+        if(!$iserror){
+          
+          $con = mysqli_connect("localhost",'root','','embro');
+      
+          if(mysqli_connect_errno($con))
+              die("Fail to connect to database :" . mysqli_connect_error());
+          
+          $query = "INSERT INTO accounts VALUES ('$user','$pass','$acc','$email','$name')";
+      
+         if(!( $result = mysqli_query($con,$query)))
+         $Err ="could not set an account, try again with different username ";
+          else{
+            $_SESSION['name']=$name;
+            $_SESSION['email']=$email;
+            $_SESSION['user']=$user;
+            $_SESSION['type']= $acc;
+            if($acc == 'artist'){
+              $query = "INSERT INTO artist VALUES ('$user','$bio','no','$web')";
+              mysqli_query($con,$query);
+              $_SESSION['approved']='no';
+              $_SESSION['bio']=$bio;
+              $_SESSION['web']=$web;
+              //$query = "INSERT INTO artwork (title , capthion , date , artist_username , image_path)VALUES ('$user','$bio','no','$web')";
+              header("Location: AddArtwork.php");//check thurya
+      
+            }
+            else {
+            header("Location: page.php");//check thurya for user page 
+            }
+          }
+      
+      
+      
+        }
+      
+      }      
 ?>
 
 <html lang="en">
@@ -35,107 +125,24 @@
 
     <!-- CSS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="./sign up_files/animate.css">
-    <link rel="stylesheet" href="./sign up_files/style.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css"> 
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
   <style type="text/css">.scrollax-performance, .scrollax-performance *, .scrollax-performance *:before, .scrollax-performance *:after { pointer-events: none !important; -webkit-animation-play-state: paused !important; animation-play-state: paused !important; };</style><script type="text/javascript" charset="UTF-8" src="./sign up_files/common.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/util.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/map.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/stats.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/onion.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/ViewportInfoService.GetViewportInfo"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/f.txt"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/controls.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/AuthenticationService.Authenticate"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/marker.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/QuotaService.RecordEvent"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/f(1).txt"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/common.js.download"></script><script type="text/javascript" charset="UTF-8" src="./sign up_files/util.js.download"></script>
   
   
   <style>
 .error {color: #FF0000;}
 </style>
-
-
-<?php
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-// define variables and set to empty values
-$nameErr = $emailErr = $passErr = $userErr =$Err=$bioErr=$webErr= "";
-$name = $email = $user = $pass =$bio=$web= $acc= "";
-$iserror= false;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
-    $iserror= true;
-  } else {
-    $name = test_input($_POST["name"]);
-    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-        $nameErr = "Only letters and white space allowed";
-        $iserror= true;
-      }
-  }
-  
-  if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-    $iserror= true;
-  } else {
-    $email = test_input($_POST["email"]);
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "Invalid email format";
-        $iserror= true;
-      }
-  }
-    
-  if (empty($_POST["user"])) {
-    $userErr = "username is required, between 5 and 20";
-  } else {//check in the database
-    $user = test_input($_POST["user"]);
-    if (!preg_match("/^[a-zA-Z0-9]{5,20}+$/",$user)) {
-      $userErr = "Only letters and numbers allowed, between 5 and 20 ";
-      $iserror= true;
-    }
-  }
-
-  if (empty($_POST["pass"])) {
-    $passErr =  "password is required";
-  } else {
-    $pass = test_input($_POST["pass"]);
-    if (!preg_match("/^(?=.*[^a-zA-Z]).{8,40}$/",$pass)) {
-      $passErr = "must be between 8 and 40 ";
-      $iserror= true;}
-     
-  }
-  $acc = test_input($_POST["account"]);
-
-  if(!$iserror){
-    
-    $con = mysqli_connect("localhost",'root','','embro');
-
-    if(mysqli_connect_errno($con))
-        die("Fail to connect to database :" . mysqli_connect_error());
-    
-    $query = "INSERT INTO accounts VALUES ('$user','$pass','$acc','$email','$name')";
-
-   if(!( $result = mysqli_query($con,$query)))
-   $Err ="could not set an account, try again ";
-    else{
-      $_SESSION['name']=$name;
-      $_SESSION['email']=$email;
-      $_SESSION['user']=$user;
-      $_SESSION['type']= $acc;
-      if($acc == 'artist'){
-        $query = "INSERT INTO artist VALUES ('$user','$bio','no','$web')";
-        mysqli_query($con,$query);
-        $_SESSION['approved']='no';
-        $_SESSION['bio']=$bio;
-        $_SESSION['web']=$web;
-        //$query = "INSERT INTO artwork (title , capthion , date , artist_username , image_path)VALUES ('$user','$bio','no','$web')";
-        header("Location: AddArtwork.php");//check thurya
-
-      }
-      else {
-      header("Location: page.php");//check thurya for user page 
-      }
-    }
-
-
-
-  }
-
-} ?>
 
 <script>
  
@@ -235,11 +242,11 @@ print(
 
 
               <div class="carousel-item active"  style="width:300px; height: 400px; overflow: hidden;text-align: center;">
-                <img src="p3.jfif" class="d-block w-100" alt="..."  >
+                <img src="images/p3.jfif" class="d-block w-100" alt="..."  >
               </div>
               
               <div class="carousel-item"  style="width:300px; height: 400px; overflow: hidden;text-align: center;">
-                <img src="p5.jfif" class="d-block w-100" alt="..." >
+                <img src="images/p5.jfif" class="d-block w-100" alt="..." >
               </div>
 
             </div>
@@ -274,8 +281,8 @@ print(
            <div class="ftco-footer-widget mb-4">
             <h2 class="ftco-heading-2">Contact Information</h2>
             <ul class="list-unstyled">
-              <li><div class="py-2 d-block">198 West 21th Street, Suite 721 Riyadh 10016</div></li>
-              <li><div class="py-2 d-block">+ 1235 2355 98</div></li>
+              <li><div class="py-2 d-block" style = "color:white;">198 West 21th Street, Suite 721 Riyadh 10016</div></li>
+              <li><div class="py-2 d-block" style = "color:white;">+ 1235 2355 98</div></li>
               <li><a href="mailto:novrartist@gmail.com" class="py-2 d-block">novrartist@gmail.com</a></li>
             </ul>
           </div>
