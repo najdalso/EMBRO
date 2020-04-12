@@ -44,10 +44,10 @@
 
       <div class="navbar-collapse collapse show" id="ftco-nav" style="">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">My Profile</a></li>
+          <li class="nav-item"><a href="homepage.php" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="Gallery.php" class="nav-link">My Profile</a></li>
           
-          <li class="nav-item active"><a href="blog.html" class="nav-link">My Favorite</a></li>
+          <li class="nav-item active"><a href="myFav.php" class="nav-link">My Favorite</a></li>
           <li class="nav-item"></li>
           <li class="nav-item cta"></li>
         </ul>
@@ -97,7 +97,7 @@ if ($result->num_rows > 0) {
 while($row = $result->fetch_assoc()) {
    $string += '<div class="col-md-4 ftco-animate fadeInUp ftco-animated">
           <div class="blog-entry">
-            <a href="blog-single.html" class="block-20" style="background-image: url('.$row["image_path"].');">
+            <a href="Gallery.php" class="block-20" style="background-image: url('.$row["image_path"].');">
             </a>
             <div class="text p-4 d-block">
               <div class="meta mb-3">
