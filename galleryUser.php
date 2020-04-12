@@ -55,9 +55,9 @@
 
 			<div class="navbar-collapse collapse show" id="ftco-nav" style="">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="file:///C:/Users/TW/Desktop/snipp/about.html" class="nav-link">Favorite list</a></li>
-					<li class="nav-item"><a href="file:///C:/Users/TW/Desktop/snipp/services.html" class="nav-link">My profile</a></li>
+					<li class="nav-item active"><a href="homepage.php" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="myFav.php" class="nav-link">Favorite list</a></li>
+					<li class="nav-item"><a href="Gallery.php" class="nav-link">My profile</a></li>
 
 					<li class="nav-item cta"></li>
 				</ul>
