@@ -153,53 +153,18 @@
         </div>
       </div>
     </section> <!-- .section -->
-
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
+<footer>
+    <div  style=" height: 100px;  background-color:#ff99cc;">
+     <div class="container">
+        <div class="row" style=" color:#ffffff">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">EMBRO</h2>
+              <h2 class="ftco-heading-2">EMPRO.</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there's fabric.</p>
             </div>
+     </div>
           </div>
-          <div class="col-md">
-             
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Contact Information</h2>
-              <ul class="list-unstyled">
-                <li><div class="py-2 d-block">198 West 21th Street, Suite 721 Riyadh 10016</div></li>
-                <li><div class="py-2 d-block">+ 1235 2355 98</div></li>
-                <li><a href="mailto:novrartist@gmail.com" class="py-2 d-block">novrartist@gmail.com</a></li>
-              </ul>
-            </div>
-          </div>
-          
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  <!-- Copyright ©️<script>document.write(new Date().getFullYear());</script>20202020 All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a> -->
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  All rights reserved | This template modified by <i class="icon-heart" aria-hidden="true">Nouf, Thurya, Haifa and Najd</i> originally mede by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
-</p>
-          </div>
-        </div>
-      </div>
     </footer>
-    
-  
 
-  <!-- loader -->
-  <div id="ftco-loader" class="fullscreen">
-    <!-- <svg class="circular" width="48px" height="48px">
-      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"></circle>
-      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"></circle>
-    </svg> -->
-  </div> 
   <script src="js/particles.min.js"></script> <!-- الأشياء اللي ترقص -->
   <script src="js/particle.js"></script> <!-- الأشياء اللي ترقص -->
   <script src="js/jquery-migrate-3.0.1.min.js"></script> <!--خاص يالبراوزر-->
