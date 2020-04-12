@@ -2,8 +2,17 @@
 <?php 
     session_start();
     if(isset($_SESSION['user']))
-         header("Location: mypage.php");//check
-    else
+        if($_SESSION['type']== 'artist'){
+                if($_SESSION['approved'] == 'yes'){
+                    header("Location: homepage.php");}//artistpage
+                else
+                    header("Location: homepage.php");//user page
+                 }
+         else if($_SESSION['type']== 'admin')
+              header("Location: admin.php");//admin
+         else
+               header("Location: homepage.php");    
+else
     {
 ?>
 
