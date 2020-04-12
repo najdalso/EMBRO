@@ -149,9 +149,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="navbar-collapse collapse show" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">My Profile</a></li>
-            <li class="nav-item"><a href="blog.html" class="nav-link">My Favorite</a></li>
+            <li class="nav-item"><a href="homepage.php" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">My Profile</a></li>
+            <li class="nav-item"><a href="myFav.php" class="nav-link">My Favorite</a></li>
             
           </ul>
         </div>
