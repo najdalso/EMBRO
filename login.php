@@ -2,17 +2,16 @@
 <?php 
     session_start();
     if(isset($_SESSION['user']))
-        if($_SESSION['type']== 'artist'){
-                if($_SESSION['approved'] == 'yes'){
-                    header("Location: homepage.php");}//artistpage
-                else
-                    header("Location: homepage.php");//user page
-                 }
+    if($_SESSION['type']== 'artist'){
+      if($_SESSION['approved'] == 'yes'){
+          header("Location: homepage.php");}//artistpage
+      else
+             header("Location: homepage.php");//user page
+          }
          else if($_SESSION['type']== 'admin')
-              header("Location: admin.php");//admin
+            header("Location: admin.php");//admin
          else
-               header("Location: homepage.php");    
-else
+            header("Location: homepage.php");      else
     {
 ?>
 
@@ -49,7 +48,7 @@ else
 
   <body data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0">
     
-    <div class="hero-wrap" style="height: 550px;">
+    <div class="hero-wrap " style="height: 550px;">
       <div class="overlay"></div>
       <div id="particles-js"><canvas class="particles-js-canvas-el" width="1112" height="1220" style="width: 100%; height: 100%;"></canvas></div>
       <div class="container">
@@ -106,11 +105,11 @@ else
             <div class="carousel-inner">
               
               <div class="carousel-item active"  style="width:300px; height: 400px; overflow: hidden;text-align: center;">
-                <img src="images/p3.jfif" class="d-block w-100" alt="..."  >
+                <img src="p3.jfif" class="d-block w-100" alt="..."  >
               </div>
               
               <div class="carousel-item"  style="width:300px; height: 400px; overflow: hidden;text-align: center;">
-                <img src="images/p5.jfif" class="d-block w-100" alt="..." >
+                <img src="p5.jfif" class="d-block w-100" alt="..." >
               </div>
               
             </div>
