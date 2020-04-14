@@ -130,7 +130,7 @@
 			<div class="row">
 				<div class="col-md-4 ftco-animate fadeInUp ftco-animated">
 					<div class="blog-entry">
-						<a href="blog-single.html" class="block-20"
+						<a href="ARTWORK.php" class="block-20"
 							style="background-image: url('images/image_7.jpg');"> </a>
 						<div class="text p-4 d-block">
 							<div class="meta mb-3">
@@ -151,7 +151,7 @@
 				</div>
 				<div class="col-md-4 ftco-animate fadeInUp ftco-animated">
 					<div class="blog-entry" data-aos-delay="100">
-						<a href="blog-single.html" class="block-20"
+						<a href="ARTWORK.php" class="block-20"
 							style="background-image: url('images/image_8.jpg');"> </a>
 						<div class="text p-4">
 							<div class="meta mb-3">
@@ -172,7 +172,7 @@
 				</div>
 				<div class="col-md-4 ftco-animate fadeInUp ftco-animated">
 					<div class="blog-entry" data-aos-delay="200">
-						<a href="blog-single.html" class="block-20"
+						<a href="ARTWORK.php" class="block-20"
 							style="background-image: url('images/image_4 .jpg');"> </a>
 						<div class="text p-4">
 							<div class="meta mb-3">
@@ -193,7 +193,7 @@
 				</div>
 				<div class="col-md-4 ftco-animate fadeInUp ftco-animated">
 					<div class="blog-entry">
-						<a href="blog-single.html" class="block-20"
+						<a href="ARTWORK.php" class="block-20"
 							style="background-image: url('images/image_9.jpg');"> </a>
 						<div class="text p-4 d-block">
 							<div class="meta mb-3">
