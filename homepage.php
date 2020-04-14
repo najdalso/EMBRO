@@ -57,7 +57,7 @@
                     <li class="nav-item"><a href="myFav.php" class="nav-link">Favorite list</a></li>
                     <li class="nav-item"><a href="Gallery.php" class="nav-link">Gallery</a></li>
                     <li class="nav-item"><a href="AddArtwork.php" class="nav-link">Add artwork</a></li>
-                    <li class="nav-item cta"><a href="logout.php" class="nav-link"><span>sign out</span></a></li>
+                    <li class="nav-item cta"><a href="login.php" class="nav-link"><span>sign out</span></a></li>
             
           </ul>
         </div>
@@ -65,7 +65,7 @@
     </nav>
     <!-- END nav -->
     <!-- <div class="js-fullheight"> -->
-    <div class="hero-wrap " style="height: 800px;">
+    <div class="hero-wrap " style="height: 620px;">
         <div class="overlay"></div>
         <div id="particles-js"><canvas class="particles-js-canvas-el" width="1770" height="1561" style="width: 100%; height: 100%;"></canvas></div>
         <div class="container">
@@ -79,7 +79,7 @@
         </div>
     </div>
 
-        <section class="ftco-section-featured ftco-animate fadeInUp ftco-animated"  data-scrollax-parent="true">
+        <section class="ftco-section-featured ftco-animate fadeInUp ftco-animated"data-scrollax=" properties: { translateY: '-30%'}" >
             
                 <div class="row no-gutters d-flex align-items-center" data-scrollax=" properties: { translateY: '-30%'}">
 
@@ -299,7 +299,7 @@
 
         </section>
     </div>
-
+<br><br><br><br><br><br><br><br><br><br>
     <footer>
     <div  style=" height: 150px;  background-color:#ff99cc;">
      <div class="container">
