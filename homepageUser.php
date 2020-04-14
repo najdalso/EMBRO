@@ -1,10 +1,10 @@
-<?php
-session_start();
-if(!isset($_SESSION['user']))
-    header("Location: login.php");//check
-    else
-    {
-        ?>
+<?php 
+   session_start();
+   if(!isset($_SESSION['user']))
+         header("Location: login.php");//check
+      else
+      {
+          ?>
       
 <!DOCTYPE>
 <html>
@@ -50,6 +50,7 @@ if(!isset($_SESSION['user']))
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
+
             <div class="navbar-collapse collapse show" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active"><a href="homepage.php" class="nav-link">Home</a></li>
@@ -63,7 +64,7 @@ if(!isset($_SESSION['user']))
     </nav>
     <!-- END nav -->
     <!-- <div class="js-fullheight"> -->
-    <div class="hero-wrap " style="height: 800px;">
+    <div class="hero-wrap " style="height: 620px;">
         <div class="overlay"></div>
         <div id="particles-js"><canvas class="particles-js-canvas-el" width="1770" height="1561" style="width: 100%; height: 100%;"></canvas></div>
         <div class="container">
@@ -77,9 +78,8 @@ if(!isset($_SESSION['user']))
         </div>
     </div>
 
-    <div class="bg-light">
-        <section class="ftco-section-featured ftco-animate fadeInUp ftco-animated">
-            <div class="container-fluid" data-scrollax-parent="true">
+        <section class="ftco-section-featured ftco-animate fadeInUp ftco-animated"data-scrollax=" properties: { translateY: '-30%'}" >
+            
                 <div class="row no-gutters d-flex align-items-center" data-scrollax=" properties: { translateY: '-30%'}">
 
                     <!--Strat of img section -->
@@ -294,15 +294,11 @@ if(!isset($_SESSION['user']))
 
                     </div>  <!--end of img section -->
 
-                </div>
-
-
-            </div>
+             
 
         </section>
     </div>
-
-
+<br><br><br><br><br><br><br><br><br><br>
     <footer>
     <div  style=" height: 150px;  background-color:#ff99cc;">
      <div class="container">
