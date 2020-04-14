@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['user']))
-    header("Location: mypage.php");//check
+    header("Location:login.php");//check
     else
     { $connect = mysqli_connect('localhost','root','', 'embro');
     if(mysqli_connect_errno($connect))
@@ -52,7 +52,7 @@ if(!isset($_SESSION['user']))
                     <li class="nav-item active"><a href="myFav.php" class="nav-link">Favorite list</a></li>
                     <li class="nav-item"><a href="Gallery.php" class="nav-link">Gallery</a></li>
                     <li class="nav-item"><a href="AddArtwork.php" class="nav-link">Add artwork</a></li>
-                    <li class="nav-item cta"><a href="login.php" class="nav-link"><span>sign out</span></a></li>
+                    <li class="nav-item cta"><a href="logout.php" class="nav-link"><span>sign out</span></a></li>
             
           </ul>
         </div>
