@@ -105,11 +105,11 @@
             <div class="carousel-inner">
               
               <div class="carousel-item active"  style="width:300px; height: 400px; overflow: hidden;text-align: center;">
-                <img src="p3.jfif" class="d-block w-100" alt="..."  >
+                <img src="images/p3.jfif" class="d-block w-100" alt="..."  >
               </div>
               
               <div class="carousel-item"  style="width:300px; height: 400px; overflow: hidden;text-align: center;">
-                <img src="p5.jfif" class="d-block w-100" alt="..." >
+                <img src="images/p5.jfif" class="d-block w-100" alt="..." >
               </div>
               
             </div>
@@ -126,18 +126,19 @@
       </div>
     </section>
     
-    <footer>
+<footer>
     <div  style=" height: 150px;  background-color:#ff99cc;">
      <div class="container">
         <div class="row" style=" color:#ffffff">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2" style=" color:#ffffff">EMPRO.</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there's fabric.</p>
-              <p>All rights reserved | This template modified by <i class="fa fa-heart" aria-hidden="true">Nouf, Thurya, Haifa and Najd</i> originally made by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
+              <p>All rights reserved | This template modified by <i class="fa fa-heart" aria-hidden="true">Nouf, Thurya, Haifa and Najd</i> originally mede by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
             </div>
      </div>
           </div>
     </footer>
+    
   <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"></circle></svg></div>
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
