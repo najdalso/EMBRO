@@ -31,14 +31,14 @@
              if($_SESSION['approved'] == 'yes'){
                $_SESSION['bio']= $row[1];
                $_SESSION['website']= $row[3];
-               header("Location: mypage.php");}//artistpage
+               header("Location: homepage.php");}//artistpage
              else
-                header("Location: mypage.php");//user page
+                header("Location: homepageUser.php");//user page
         }
         else if($_SESSION['type']== 'admin')
              header("Location: admin.php");//admin
         else
-              header("Location: mypage.php");//user
+              header("Location: homepageUser.php");//user
     }
 
     else {
