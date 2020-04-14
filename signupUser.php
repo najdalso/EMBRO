@@ -89,13 +89,9 @@
               $_SESSION['approved']='no';
               $_SESSION['bio']=$bio;
               $_SESSION['web']=$web;
-              //$query = "INSERT INTO artwork (title , capthion , date , artist_username , image_path)VALUES ('$user','$bio','no','$web')";
-              header("Location: AddArtwork.php");//check thurya
-      
+              
             }
-            else {
-            header("Location: page.php");//check thurya for user page 
-            }
+            header("Location: homepageUser.php");
           }
       
       
@@ -226,13 +222,14 @@ print(
               </div>
               <div id = "profilInfo" class="form-group" style = "display:none;">
               <div class="form-group">
+              <textarea name = "bio" type="text" class="form-control" placeholder="bio (write something about yourself as an artist and your art to get approval)" value="'. $bio.'" required></textarea>
+              <span class="error">'.$bioErr.'</span>
+            </div>
+              <div class="form-group">
               <input name = "web" type="text" class="form-control" placeholder="website (optional)" value="'. $web.'" >
               <span class="error">'.$webErr.'</span>
             </div>
-            <div class="form-group">
-              <textarea name = "bio" type="text" class="form-control" placeholder="bio (optional)" value="'. $bio.'" ></textarea>
-              <span class="error">'.$bioErr.'</span>
-            </div>
+            
               </div>
               <div class="form-group">
               <span class="error">'.$Err.'</span>
