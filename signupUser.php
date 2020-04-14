@@ -61,7 +61,7 @@
         } else {
           $pass = test_input($_POST["pass"]);
           if (!preg_match("/^(?=.*[^a-zA-Z]).{8,40}$/",$pass)) {
-            $passErr = "must be between 8 and 40 ";
+            $passErr = "contains letters and numbers , must be between 8 and 40 ";
             $iserror= true;}
            
         }
@@ -84,13 +84,11 @@
             $_SESSION['user']=$user;
             $_SESSION['type']= $acc;
             if($acc == 'artist'){
-              $query = "INSERT INTO artist VALUES ('$user','$bio','no','$web')";
+              $query = "INSERT INTO artist VALUES ('$user','$bio','yet','$web')";
               mysqli_query($con,$query);
-              $_SESSION['approved']='no';
+              $_SESSION['approved']='yet';
               $_SESSION['bio']=$bio;
-              $_SESSION['web']=$web;
-              
-            }
+              $_SESSION['web']=$web;   }
             header("Location: homepageUser.php");
           }
       
@@ -222,17 +220,21 @@ print(
               </div>
               <div id = "profilInfo" class="form-group" style = "display:none;">
               <div class="form-group">
-              <textarea name = "bio" type="text" class="form-control" placeholder="bio (write something about yourself as an artist and your art to get approval)" value="'. $bio.'" required></textarea>
+              <textarea name = "bio" type="text" class="form-control" placeholder="bio (write something about yourself as an artist and your art to get approval)" value="'. $bio.'" ></textarea>
               <span class="error">'.$bioErr.'</span>
             </div>
               <div class="form-group">
               <input name = "web" type="text" class="form-control" placeholder="website (optional)" value="'. $web.'" >
               <span class="error">'.$webErr.'</span>
             </div>
-            
               </div>
               <div class="form-group">
               <span class="error">'.$Err.'</span>
+              </div>
+              <div class = "text-sm-right form-group">
+                <a style=" text-decoration: underline ; font-weight: 100;" href="login.php">already have account? log in </a>
+              </div>
+              <div class="form-group">
                <center> <input type="submit" value="SIGN UP" class="btn btn-primary py-3 px-5"></center>
               </div>
             </form>
