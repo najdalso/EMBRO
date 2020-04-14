@@ -1,15 +1,14 @@
 <?php
 session_start();
-if(isset($_SESSION['user']))
+if(!isset($_SESSION['user']))
     header("Location: mypage.php");//check
     else
-    {
+    { $connect = mysqli_connect('localhost','root','', 'embro');
+    if(mysqli_connect_errno($connect))
+        die("Fail to connect to database :" . mysqli_connect_error());
+        $query = "select title,artist_username,image_path from artwork";
+        $result = mysqli_query($query);
         ?>
-<?php 
-include_once('fav.php');
-$query = "select title,artist_username,image_path from artwork";
-$result = mysql_query($query);
-?>
 <!DOCTYPE html>
 <html> <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -78,7 +77,7 @@ $result = mysql_query($query);
     <div class="container" style="justify-content: left;">
       <div class="row">
       <?php 
- while($rows=mysql_fetch_assoc($result)){
+      while($rows=mysqli_fetch_all($result)){
 ?>
   <div class="col-md-4 ftco-animate fadeInUp ftco-animated">
           <div class="blog-entry">
@@ -96,11 +95,20 @@ $result = mysql_query($query);
         </div>
         <?php 
  }?>
-
+?>
 
       </div>
     </div>
   </section>
+  
+<script>
+
+function deleteacc(bt) {
+  var acc = bt.parentNode.parentNode;
+  acc.parentNode.removeChild(acc);
+}
+
+</script>
   
 
   <footer>
@@ -118,17 +126,6 @@ $result = mysql_query($query);
   
 
 
-<!-- loader -->
-<div id="ftco-loader" class="fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"></circle><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"></circle></svg></div>
-
-<script>
-
-function deleteacc(bt) {
-  var acc = bt.parentNode.parentNode;
-  acc.parentNode.removeChild(acc);
-}
-
-</script>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
@@ -145,8 +142,6 @@ function deleteacc(bt) {
 <script src="js/main.js"></script>
 
 
-
-</script>
 
 </body></html>
 <?php
