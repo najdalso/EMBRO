@@ -1,7 +1,8 @@
 <?php 
     session_start();
     if(!isset($_SESSION['user']) || !isset($_SESSION['id']))
-         header("Location: start.php"); //check
+         header("Location: login.php"); //check
+         else {
     $artworkID = $_SESSION['id'];
     $con = mysqli_connect("localhost",'root','','embro');
     if(mysqli_connect_errno($con))
@@ -28,6 +29,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link rel="stylesheet" href="css/animate.css"> 
+    <!-- <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/owl.carousel.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/owl.theme.default.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/magnific-popup.css"> -->
+    <!-- <link rel="stylesheet" href="css/aos.css"> -->
+    <!-- <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css"> -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -54,7 +66,7 @@
                     <li class="nav-item"><a href="myFav.php" class="nav-link">Favorite list</a></li>
                     <li class="nav-item"><a href="Gallery.php" class="nav-link">Gallery</a></li>
                     <li class="nav-item"><a href="AddArtwork.php" class="nav-link">Add artwork</a></li>
-                    <li class="nav-item cta"><a href="logout.php" class="nav-link"><span>sign out</span></a></li>
+                    <li class="nav-item cta"><a href="login.php" class="nav-link"><span>sign out</span></a></li>
             
           </ul>
         </div>
@@ -161,25 +173,25 @@
   
 
  
-  <script src="js/particles.min.js"></script> <!-- الأشياء اللي ترقص -->
-  <script src="js/particle.js"></script> <!-- الأشياء اللي ترقص -->
-  <script src="js/jquery-migrate-3.0.1.min.js"></script> <!--خاص يالبراوزر-->
-  <script src="js/popper.min.js"></script> <!--يرقى وينزل الكلام-->
-  <script src="js/jquery.easing.1.3.js"></script> <!--ترقى معنا الخلفية وتنزل-->
-  <script src="js/jquery.waypoints.min.js"></script> <!--لما ننزل ونرقة تتنفذ فنكشنز معينة-->
-  <script src="js/jquery.stellar.min.js"></script> <!--ترقى معنا الخلفية وتنزل-->
-  <script src="js/jquery.magnific-popup.min.js"></script> <!--يسوي هايلايت خفيف على الصورة-->
-  <script src="js/aos.js"></script> <!--نلعب بالفيدنق حق عناصر الصفحة-->
-  <script src="js/scrollax.min.js"></script> <!--يغير بهوت العنوان كل ما ننزل-->
-  <script src="js/main.js"></script> <!--يغير بهوت العنوان كل ما ننزل-->
+  <script src="js/particles.min.js"></script> <!-- Ø§Ù„Ø£Ø´ÙŠØ§Ø¡ Ø§Ù„Ù„ÙŠ ØªØ±Ù‚Øµ -->
+  <script src="js/particle.js"></script> <!-- Ø§Ù„Ø£Ø´ÙŠØ§Ø¡ Ø§Ù„Ù„ÙŠ ØªØ±Ù‚Øµ -->
+  <script src="js/jquery-migrate-3.0.1.min.js"></script> <!--Ø®Ø§Øµ ÙŠØ§Ù„Ø¨Ø±Ø§ÙˆØ²Ø±-->
+  <script src="js/popper.min.js"></script> <!--ÙŠØ±Ù‚Ù‰ ÙˆÙŠÙ†Ø²Ù„ Ø§Ù„ÙƒÙ„Ø§Ù…-->
+  <script src="js/jquery.easing.1.3.js"></script> <!--ØªØ±Ù‚Ù‰ Ù…Ø¹Ù†Ø§ Ø§Ù„Ø®Ù„Ù�ÙŠØ© ÙˆØªÙ†Ø²Ù„-->
+  <script src="js/jquery.waypoints.min.js"></script> <!--Ù„Ù…Ø§ Ù†Ù†Ø²Ù„ ÙˆÙ†Ø±Ù‚Ø© ØªØªÙ†Ù�Ø° Ù�Ù†ÙƒØ´Ù†Ø² Ù…Ø¹ÙŠÙ†Ø©-->
+  <script src="js/jquery.stellar.min.js"></script> <!--ØªØ±Ù‚Ù‰ Ù…Ø¹Ù†Ø§ Ø§Ù„Ø®Ù„Ù�ÙŠØ© ÙˆØªÙ†Ø²Ù„-->
+  <script src="js/jquery.magnific-popup.min.js"></script> <!--ÙŠØ³ÙˆÙŠ Ù‡Ø§ÙŠÙ„Ø§ÙŠØª Ø®Ù�ÙŠÙ� Ø¹Ù„Ù‰ Ø§Ù„ØµÙˆØ±Ø©-->
+  <script src="js/aos.js"></script> <!--Ù†Ù„Ø¹Ø¨ Ø¨Ø§Ù„Ù�ÙŠØ¯Ù†Ù‚ Ø­Ù‚ Ø¹Ù†Ø§ØµØ± Ø§Ù„ØµÙ�Ø­Ø©-->
+  <script src="js/scrollax.min.js"></script> <!--ÙŠØºÙŠØ± Ø¨Ù‡ÙˆØª Ø§Ù„Ø¹Ù†ÙˆØ§Ù† ÙƒÙ„ Ù…Ø§ Ù†Ù†Ø²Ù„-->
+  <script src="js/main.js"></script> <!--ÙŠØºÙŠØ± Ø¨Ù‡ÙˆØª Ø§Ù„Ø¹Ù†ÙˆØ§Ù† ÙƒÙ„ Ù…Ø§ Ù†Ù†Ø²Ù„-->
   <script src="js/jquery.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script>
     function myFunction(x) {
-      var count = 0; // Ø§Ù„Ù…Ù�Ø±ÙˆØ¶ Ù‡Ù†Ø§ Ø£Ø³ØªØ¯Ø¹ÙŠ Ø§Ù„ÙƒØ§ÙˆÙ†ØªØ± Ù…Ù† Ø§Ù„Ø¯Ø§ØªØ§Ø¨ÙŠØ³
+      var count = 0; // Ã˜Â§Ã™â€žÃ™â€¦Ã™ï¿½Ã˜Â±Ã™Ë†Ã˜Â¶ Ã™â€¡Ã™â€ Ã˜Â§ Ã˜Â£Ã˜Â³Ã˜ÂªÃ˜Â¯Ã˜Â¹Ã™Å  Ã˜Â§Ã™â€žÃ™Æ’Ã˜Â§Ã™Ë†Ã™â€ Ã˜ÂªÃ˜Â± Ã™â€¦Ã™â€  Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â§Ã˜ÂªÃ˜Â§Ã˜Â¨Ã™Å Ã˜Â³
       if ( x.classList.contains( "fa-heart") ) {
-          x.classList.remove( "fa-heart" ); // Ø§Ù„Ù…ØªØ¹Ø¨ÙŠØ©
-          x.classList.add( "fa-heart-o" ); // Ø§Ù„Ù…Ù�Ø±ØºØ©
+          x.classList.remove( "fa-heart" ); // Ã˜Â§Ã™â€žÃ™â€¦Ã˜ÂªÃ˜Â¹Ã˜Â¨Ã™Å Ã˜Â©
+          x.classList.add( "fa-heart-o" ); // Ã˜Â§Ã™â€žÃ™â€¦Ã™ï¿½Ã˜Â±Ã˜ÂºÃ˜Â©
           <?php 
           $query = 'UPDATE artwork SET likes = likes - 1 where id = $artworkID';
           mysqli_query($con, $query);
@@ -187,8 +199,8 @@
          // document.getElementById("liked").innerText = "0 liked this artwork";
       }
       else {
-          x.classList.remove( "fa-heart-o" ); // Ø§Ù„Ù…Ù�Ø±ØºØ©
-          x.classList.add( "fa-heart" ); // Ø§Ù„Ù…ØªØ¹Ø¨ÙŠØ©
+          x.classList.remove( "fa-heart-o" ); // Ã˜Â§Ã™â€žÃ™â€¦Ã™ï¿½Ã˜Â±Ã˜ÂºÃ˜Â©
+          x.classList.add( "fa-heart" ); // Ã˜Â§Ã™â€žÃ™â€¦Ã˜ÂªÃ˜Â¹Ã˜Â¨Ã™Å Ã˜Â©
           <?php 
           $query = 'UPDATE artwork SET likes = likes + 1 where id = $artworkID';
           mysqli_query($con, $query);
@@ -198,5 +210,12 @@
 }
   </script>
 
+  <!-- <script src="js/bootstrap.min.js"></script>  
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
+  <script src="js/google-map.js"></script> --> <!--Ù‚Ø´-->
 </body>
 </html>
+<?php }?>
