@@ -20,8 +20,8 @@
         return $data;
       }
       // define variables and set to empty values
-      $nameErr = $emailErr = $passErr = $userErr =$Err=$bioErr=$webErr= "";
-      $name = $email = $user = $pass =$bio=$web= $acc= "";
+      $nameErr = $emailErr = $passErr = $userErr =$Err=$bioErr= "";
+      $name = $email = $user = $pass =$bio= $acc= "";
       $iserror= false;
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["name"])) {
@@ -84,11 +84,10 @@
             $_SESSION['user']=$user;
             $_SESSION['type']= $acc;
             if($acc == 'artist'){
-              $query = "INSERT INTO artist VALUES ('$user','$bio','yet','$web')";
+              $query = "INSERT INTO artist VALUES ('$user','$bio','yet')";
               mysqli_query($con,$query);
               $_SESSION['approved']='yet';
-              $_SESSION['bio']=$bio;
-              $_SESSION['web']=$web;   }
+              $_SESSION['bio']=$bio;   }
             header("Location: homepageUser.php");
           }
       
@@ -222,10 +221,6 @@ print(
               <div class="form-group">
               <textarea name = "bio" type="text" class="form-control" placeholder="bio (write something about yourself as an artist and your art to get approval)" value="'. $bio.'" ></textarea>
               <span class="error">'.$bioErr.'</span>
-            </div>
-              <div class="form-group">
-              <input name = "web" type="text" class="form-control" placeholder="website (optional)" value="'. $web.'" >
-              <span class="error">'.$webErr.'</span>
             </div>
               </div>
               <div class="form-group">
