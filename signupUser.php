@@ -1,7 +1,16 @@
 <?php 
     session_start();
    if(isset($_SESSION['user']))
-        header("Location: mypage.php");//check
+    if($_SESSION['type']== 'artist'){
+      if($_SESSION['approved'] == 'yes'){
+          header("Location: homepage.php");}//artistpage
+      else
+             header("Location: homepageUser.php");//user page
+          }
+         else if($_SESSION['type']== 'admin')
+            header("Location: admin.php");//admin
+         else
+            header("Location: homepageUser.php"); 
     else
     {
       function test_input($data) {
@@ -190,11 +199,8 @@ print(
           
         </div>
         <div class="row block-9">
-          <div class="col-md-6 pr-md-5">');
-            
-            //
-            print(
-            '<form method = "POST" action="'. htmlspecialchars($_SERVER["PHP_SELF"]).'">
+          <div class="col-md-6 pr-md-5">
+          <form method = "POST" action="'. htmlspecialchars($_SERVER["PHP_SELF"]).'">
               <div class="form-group">
               <div class="form-group">
                 <input name = "email" type="text" class="form-control" placeholder="your email" value="'.$email.'" required>
