@@ -6,12 +6,12 @@
       if($_SESSION['approved'] == 'yes'){
           header("Location: homepage.php");}//artistpage
       else
-             header("Location: homepageuser.php");//user page
+             header("Location: homepageUser.php");//user page
           }
          else if($_SESSION['type']== 'admin')
             header("Location: admin.php");//admin
          else
-            header("Location: homepageuser.php");     
+            header("Location: homepageUser.php");     
 else
     {
 ?>
