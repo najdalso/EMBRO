@@ -28,17 +28,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link rel="stylesheet" href="css/animate.css"> 
-    <!-- <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css"> -->
-    <!-- <link rel="stylesheet" href="css/owl.carousel.min.css"> -->
-    <!-- <link rel="stylesheet" href="css/owl.theme.default.min.css"> -->
-    <!-- <link rel="stylesheet" href="css/magnific-popup.css"> -->
-    <!-- <link rel="stylesheet" href="css/aos.css"> -->
-    <!-- <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css"> -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -65,7 +54,7 @@
                     <li class="nav-item"><a href="myFav.php" class="nav-link">Favorite list</a></li>
                     <li class="nav-item"><a href="Gallery.php" class="nav-link">Gallery</a></li>
                     <li class="nav-item"><a href="AddArtwork.php" class="nav-link">Add artwork</a></li>
-                    <li class="nav-item cta"><a href="login.php" class="nav-link"><span>sign out</span></a></li>
+                    <li class="nav-item cta"><a href="logout.php" class="nav-link"><span>sign out</span></a></li>
             
           </ul>
         </div>
@@ -209,11 +198,5 @@
 }
   </script>
 
-  <!-- <script src="js/bootstrap.min.js"></script>  
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
-  <script src="js/google-map.js"></script> --> <!--قش-->
 </body>
 </html>
