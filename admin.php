@@ -1,9 +1,9 @@
  <?php 
-    session_start();
-    if(!isset($_SESSION['user']))
+   session_start();
+   if(!isset($_SESSION['user']))
          header("Location: login.php");//check
       else
-     {
+      {
   $connect = mysqli_connect('localhost','root','', 'embro');
  if(mysqli_connect_errno($connect))
         die("Fail to connect to database :" . mysqli_connect_error());
@@ -30,9 +30,13 @@ mysqli_free_result($result_u);
 mysqli_free_result($result_c);
 mysqli_free_result($result_A);
     
-mysqli_close($connect); 
+mysqli_close($connect);
+//  $sql ="UPDATE accounts SET Approval='1' WHERE username = $thisuser ";
+
+//print_r($username) 
 
 ?>
+
 <!DOCTYPE>
 <html>
 
@@ -42,19 +46,19 @@ mysqli_close($connect);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="css/css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css"> <!-- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
-    <link rel="stylesheet" href="css/animate.css"> <!-- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -->
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css"> <!-- Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ -->
+    <link rel="stylesheet" href="css/animate.css"> <!-- Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ -->
 
-    <link rel="stylesheet" href="css/owl.carousel.min.css"> <!-- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ -->
-    <link rel="stylesheet" href="css/owl.theme.default.min.css"> <!-- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ -->
-    <link rel="stylesheet" href="css/magnific-popup.css"> <!-- ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css"> <!-- Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½  Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ -->
+    <link rel="stylesheet" href="css/owl.theme.default.min.css"> <!-- Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½  Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ -->
+    <link rel="stylesheet" href="css/magnific-popup.css"> <!-- Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½  Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ -->
 
-    <link rel="stylesheet" href="css/aos.css">  <!-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
+    <link rel="stylesheet" href="css/aos.css">  <!-- Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ -->
 
-    <link rel="stylesheet" href="css/ionicons.min.css"> <!-- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
+    <link rel="stylesheet" href="css/ionicons.min.css"> <!-- Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ -->
  
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css"> <!-- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  -->
-    <link rel="stylesheet" href="css/jquery.timepicker.css"> <!--  ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ -->
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css"> <!-- Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ ,Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½  -->
+    <link rel="stylesheet" href="css/jquery.timepicker.css"> <!--  Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ ,Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ -->
 
 
     <link rel="stylesheet" href="css/icomoon.css">
@@ -68,11 +72,11 @@ mysqli_close($connect);
 
         ;
     </style>
-     <link rel="stylesheet" href="counterSectionStyle.css">  
+     <link rel="stylesheet" href="css/counterSectionStyle.css">  
 				
-<link href="bootstrap.min-stattic.css" rel="stylesheet">
-<script src="bootstrap.min.js"></script>
-<script src="jquery-1.11.1.min.js"></script>
+<link href="css/bootstrap.min-stattic.css" rel="stylesheet">
+<script src="js/1bootstrap.min.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
        
 </head>
@@ -104,13 +108,55 @@ mysqli_close($connect);
                     <h1 class="mb-4" data-scrollax="properties: { translateY: &#39;30%&#39;, opacity: 1.6 }" style="opacity: 1; transform: translateZ(0px) translateY(0%);"><strong>Welcome back</strong></h1>
                     <p data-scrollax="properties: { translateY: &#39;30%&#39;, opacity: 1.6 }" style="opacity: 1; transform: translateZ(0px) translateY(0%);">
                     </p>
+           <!--   <ul>
+            <li class="list-group-item">
+                <a href="">account 1 </a>
+                <input type="button" onclick="deleteacc(this)" value="disapprove">
+                <input type="button" onclick="approveacc(this)" value="approve">
+            </li>
+            <li class="list-group-item">
+                <a href="">account 2 </a>
+                <input type="button" onclick="deleteacc(this)" value="disapprove">
+                <input type="button" onclick="approveacc(this)" value="approve">
+            </li>
+            <li class="list-group-item">
+                <a href="">account 3 </a>
+                <input type="button" onclick="deleteacc(this)" value="disapprove">
+                <input type="button" onclick="approveacc(this)" value="approve">
+            </li>
+            <li class="list-group-item">
+                <a href="">account 4 </a>
+                <input type="button" onclick="deleteacc(this)" value="disapprove">
+                <input type="button" onclick="approveacc(this)" value="approve">
+            </li>
+            <li class="list-group-item">
+                <a href="">account 5 </a>
+                <input type="button" onclick="deleteacc(this)" value="disapprove">
+                <input type="button" onclick="approveacc(this)" value="approve">
+            </li>
+        </ul> -->
                     
                 </div>
             </div>
         </div>
     </div>
+   
+   <!--  <script>
 
-    <section id="counter" class="counter">
+        function deleteacc(bt) {
+            var acc = bt.parentNode;
+            acc.parentNode.removeChild(acc);
+        }
+
+        function approveacc(bt) {
+            var acc = bt.parentNode;
+            acc.parentNode.removeChild(acc);
+        }
+    </script> -->
+
+     <!-- Here is the section -->
+     
+      <section id="counter" class="counter">
             <div class="main_counter_area">
                 <div class="overlay count-title">
                     <div class="container">
@@ -155,8 +201,9 @@ mysqli_close($connect);
                 </div>
             </div>
         </section><!-- End of counter Section -->
-	
+
 <!-- start of approve request section  -->    
+
 <div class="container my-5" overflow: auto; >
     <div class="row" >
     <?php foreach ($username as $newuser) {   ?>
@@ -218,18 +265,19 @@ mysqli_close($connect);
 
         </script>
 
-  <script type="text/javascript" src="statistic-counter.js"></script>
-  <script type="text/javascript" src="jquery.waypoints.min.js"></script>
-        <script type="text/javascript" src="jquery.counterup.min.js"></script>
+  <script type="text/javascript" src="js/statistic-counter.js"></script>
+  <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+        <script type="text/javascript" src="js/jquery.counterup.min.js"></script>
         
 		</body>
 <footer>
-    <div  style=" height: 100px;  background-color:#ff99cc;">
+    <div  style=" height: 150px;  background-color:#ff99cc;">
      <div class="container">
         <div class="row" style=" color:#ffffff">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">EMPRO.</h2>
+              <h2 class="ftco-heading-2" style=" color:#ffffff">EMPRO.</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there's fabric.</p>
+              <p>All rights reserved | This template modified by <i class="fa fa-heart" aria-hidden="true">Nouf, Thurya, Haifa and Najd</i> originally mede by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
             </div>
      </div>
           </div>
